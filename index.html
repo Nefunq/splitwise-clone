@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Splitwise Clone - Share Expenses with Friends</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Auth Section -->
+        <div id="auth-section" class="auth-section">
+            <div class="auth-card">
+                <div class="auth-tabs">
+                    <button class="tab-btn active" data-tab="login">Login</button>
+                    <button class="tab-btn" data-tab="register">Register</button>
+                </div>
+                
+                <div id="login-form" class="auth-form active">
+                    <h2>Welcome Back</h2>
+                    <input type="email" id="login-email" placeholder="Email" required>
+                    <input type="password" id="login-password" placeholder="Password" required>
+                    <button id="login-btn">Login</button>
+                    <p class="error-message" id="login-error"></p>
+                </div>
+                
+                <div id="register-form" class="auth-form">
+                    <h2>Create Account</h2>
+                    <input type="text" id="register-name" placeholder="Full Name" required>
+                    <input type="email" id="register-email" placeholder="Email" required>
+                    <input type="password" id="register-password" placeholder="Password" required>
+                    <button id="register-btn">Register</button>
+                    <p class="error-message" id="register-error"></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dashboard Section -->
+        <div id="dashboard-section" class="dashboard-section" style="display: none;">
+            <nav class="navbar">
+                <div class="nav-brand">Splitwise Clone</div>
+                <div class="nav-user">
+                    <span id="user-name"></span>
+                    <button id="logout-btn" class="logout-btn">Logout</button>
+                </div>
+            </nav>
+            
+            <div class="dashboard-container">
+                <div class="sidebar">
+                    <div class="sidebar-header">
+                        <h3>My Groups</h3>
+                        <button id="create-group-btn" class="btn-primary-small">+ New Group</button>
+                    </div>
+                    <div id="groups-list" class="groups-list"></div>
+                </div>
+                
+                <div class="main-content">
+                    <div id="group-view" class="group-view">
+                        <div class="empty-state">
+                            <p>Select a group to view details</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Create Group Modal -->
+    <div id="create-group-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Create New Group</h3>
+            <input type="text" id="new-group-name" placeholder="Group Name">
+            <button id="confirm-create-group">Create</button>
+        </div>
+    </div>
+
+    <!-- Add Expense Modal -->
+    <div id="expense-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Add Expense</h3>
+            <input type="text" id="expense-desc" placeholder="Description">
+            <input type="number" id="expense-amount" placeholder="Amount" step="0.01">
+            <select id="expense-paid-by"></select>
+            <input type="date" id="expense-date">
+            <button id="confirm-expense">Add Expense</button>
+        </div>
+    </div>
+
+    <!-- Add Member Modal -->
+    <div id="member-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Add Member</h3>
+            <input type="email" id="member-email" placeholder="User Email">
+            <button id="confirm-member">Add Member</button>
+        </div>
+    </div>
+
+    <!-- Settle Modal -->
+    <div id="settle-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Settle Up</h3>
+            <p>Pay to: <strong id="settle-to-name"></strong></p>
+            <input type="number" id="settle-amount" placeholder="Amount" step="0.01">
+            <button id="confirm-settle">Record Payment</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
